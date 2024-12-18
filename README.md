@@ -109,14 +109,14 @@ Now, the nice thing about having a piece of code that can read these serialised 
 There are a few commands to edit the board, the guide for said commands being accessible by left clicking the question mark icon.
 
 
-Left click on cell - Turns cell on/off depending on prior state
-Right click - Copies pattern to screen. Currently only gosper glider gun - better pattern copying will be implemented later
-Space bar - Pause/Unpause simulation
-E - Move single step in simulation
-F - Clear grid entirely
-R - Randomise grid entirely
-WASD - Move up, left, down, and right respectively
-CZ - Zoom in and out respectively
+**Left click on cell** - Turns cell on/off depending on prior state
+**Right click** - Copies pattern to screen. Currently only gosper glider gun - better pattern copying will be implemented later
+**Space bar** - Pause/Unpause simulation
+**E** - Move single step in simulation
+**F** - Clear grid entirely
+**R** - Randomise grid entirely
+**WASD** - Move up, left, down, and right respectively
+**CZ** - Zoom in and out respectively
 
 
 # IMPORTANT INFO
