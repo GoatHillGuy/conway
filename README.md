@@ -1,6 +1,8 @@
-This is my rendition of the Conways Game of Life simulation.
+# Conway's Game Of Life
+Demo Video: <https://www.youtube.com/watch?v=t30rUXlpwZA>
+Desc:
 
-It is a long time project for me, but also my entry for the final project of CS50x.
+This is my rendition of the Conways Game of Life simulation.
 
 There are a few commands to edit the board, the guide for said commands being accessible by
 left clicking the question mark icon. These commands will be listed below, for your convenience.
@@ -14,4 +16,11 @@ R - Randmise grid entirely
 WASD - Move up, left, down, and right respectively
 CZ - Zoom in and out respectively
 
-Hopefully you enjoy using this program, if there are any bugs, please report them.
+# IMPORTANT INFO
+
+This project has a few dependencies which I shall list out:
+math
+random 
+pygame
+
+Run the following command to run the code: python3 ./cgol_ui.py
