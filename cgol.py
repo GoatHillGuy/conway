@@ -122,6 +122,9 @@ The View class handles the view regarding zoom and pan
 
 class View:
 
+    """
+    The View class handles the view regarding zoom and pan
+    """
     def __init__(self, view_size, x, y):
         self.view_size = view_size
         self.x = x

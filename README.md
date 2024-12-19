@@ -49,9 +49,26 @@ As you can see, this code is fairly simple, and is the innermost workings of my 
 
 In this section, we will be looking at the more technical part of the code, contained within **cgol.py**. The two most important classes of this code is **Grid** that deals with the world, and **View**, which deals with the users view onto it.
 
-One of the major design choices I made early on was whether to use a dictionary or nested list to store my cells. I started out with a nested list, but changed to using a dictionary later on. It let me have far looser boundaries for the grid, and would only store live cells, saving space. To put it fairly simply, it's just more flexible, easier to manipulate, and uses less memory. 
+One of the major design choices I made early on was whether to use a dictionary or nested list to store my cells. I started out with a nested list, but changed to using a dictionary later on. It let me have far looser boundaries for the grid, and would only store live cells, saving space. To put it fairly simply, it's just more flexible, easier to manipulate, and uses less memory. Below is the grid I use. It takes (x,y) coordinates, and a 0 or 1 value to represent if the cell is alive or dead.
 
-Another interesting feature in **cgol.py** is the **View** class. The view and grid are separate entities, with the **Grid** being the entire simulation space and the view being the observable simulation space. The **View** supports things like zooming in and out and panning across the grid. 
+```python
+self.gridata = {}
+```
+
+Another interesting feature in **cgol.py** is the **View** class. The view and grid are separate entities, with the **Grid** being the entire simulation space and the view being the observable simulation space. The **View** supports things like zooming in and out and panning across the grid.
+
+```python
+class View:
+
+    """
+    The View class handles the view regarding zoom and pan
+    """
+    def __init__(self, view_size, x, y):
+        self.view_size = view_size
+        self.x = x
+        self.y = y
+```
+I paid special attention to unit tests when developing **View** to make sure that it worked completely as intended.
 
 
 ## The ui
@@ -63,7 +80,7 @@ The file responsible for the user interface is **cgol_ui.py**. I chose pygame fo
 A few of the stand out features in **cgol_ui.py** are the commands. Especially zoom, pan, and copy. Zoom and pan are actually what utilise **View** in **cgol.py**, and were probably the trickiest commands to code. One of the bugs I ran into while coding them was that the sides of the grid elongated and the proportions were all off. I eventually found it was due to rounding error in the **View** class.
 
 
-```
+```python
 self.view_size = math.round(max(min(self.view_size * f, grid_size), 1))
 ```
 
@@ -71,7 +88,7 @@ self.view_size = math.round(max(min(self.view_size * f, grid_size), 1))
 The bug was due to the fact that when I was rounding, I would marginally throw the proportion off, and that would result in a cascade where my entire grid would be out of proportion. The fix, however, was simple.
 
 
-```
+```python
 self.view_size = math.ceil(max(min(self.view_size * f, grid_size), 1))
 ```
 
