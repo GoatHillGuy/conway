@@ -49,10 +49,14 @@ As you can see, this code is fairly simple, and is the innermost workings of my 
 
 In this section, we will be looking at the more technical part of the code, contained within **cgol.py**. The two most important classes of this code is **Grid** that deals with the world, and **View**, which deals with the users view onto it.
 
-One of the major design choices I made early on was whether to use a dictionary or nested list to store my cells. I started out with a nested list, but changed to using a dictionary later on. It let me have far looser boundaries for the grid, and would only store live cells, saving space. To put it fairly simply, it's just more flexible, easier to manipulate, and uses less memory. Below is the grid I use. It takes (x,y) coordinates, and a 0 or 1 value to represent if the cell is alive or dead.
+One of the major design choices I made early on was whether to use a dictionary or nested list to store my cells. I started out with a nested list, but changed to using a dictionary later on. It let me have far looser boundaries for the grid, and would only store live cells, saving space. To put it simply, it's just more flexible, easier to manipulate, and uses less memory. Below is the grid I use. The keys it takes are (x,y) coordinate tuples, and 1 value to represent if the cell is alive.
 
 ```python
 self.gridata = {}
+
+# example grid entry for a live cell
+
+self.gridata([x, y]) = 1
 ```
 
 Another interesting feature in **cgol.py** is the **View** class. The view and grid are separate entities, with the **Grid** being the entire simulation space and the view being the observable simulation space. The **View** supports things like zooming in and out and panning across the grid.
